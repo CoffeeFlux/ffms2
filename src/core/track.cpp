@@ -314,7 +314,7 @@ void FFMS_Track::FillAudioGaps() {
 
         const auto ExpectedStartSample = DurationToSamples(Frame.PTS - FirstPTS);
         const auto Gap = static_cast<int32_t>(ExpectedStartSample - Frame.SampleStart);
-        if (Gap > 0) {
+        if (Gap != 0) {
             PrevFrame->SampleCount += Gap;
             Frame.SampleStart = ExpectedStartSample;
         }
